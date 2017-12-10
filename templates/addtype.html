@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h1 class="title">Добавить тип</h1>
+
+        <form action="" method="post">{%  csrf_token %}
+        <div>
+        {{ form.as_table}}
+
+            <br>
+            <br>
+            <div style="margin: 0px 30px">
+        <button name="addtype" value=>Добавить</button>
+        </div>
+        </form>
+
+<div style="margin: -22px 160px">
+    <form action="/">
+
+    <button  name="addobject" value=>Назад</button>
+    </form>
+
+
+
+
+
+</div>
+<br>
+
+<br>
+<div style="margin: 0px 30px">
+<table border="2"  cellpadding="7">
+
+
+    {%  for type in Types %}
+    <tr>
+       <td>   {{ type.name}}</td>
+     </tr>
+    {% endfor %}
+
+
+
+
+     </table>
+
+</div>
+
+
+</body>
+</html>

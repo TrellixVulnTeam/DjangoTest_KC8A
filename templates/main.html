@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<br>
+<br>
+
+<form action="/addobject/">
+   <button name="addobject" value=>Добавить Машину</button>
+</form>
+
+<div style="margin: -21px 160px">
+<form action="/addtype/">
+</var val="2">
+   <button name="addtype" value=>Добавить Тип Машины</button>
+</form>
+</div>
+
+
+<br>
+<br>
+
+
+ <form id="1" action="" method="post">{%  csrf_token %}
+
+         <div style="margin: 0px 30px">
+            <select name="filter" form="1">
+             <option all>all</option>
+            {%  for type in Types %}
+             <div>
+             <option {{ type.name }}>{{ type.name }}</option>
+            </div>
+             {% endfor %}
+            </select>
+
+        </div>
+        <div style="margin: -21px 200px">        <button name="addobject" value=>Применить</button>
+        </div>
+
+ <br>
+ <br>
+
+
+ <div>
+  <table border="2"  cellpadding="7">
+        <tr>
+        <td>     Бортовой номер  </td>
+        <td>  Модель </td>
+        <td> Макс. грузоподъёмность </td>
+        <td>  Текущий вес </td>
+        <td>  Перегруз % </td>
+        </tr>
+    {%  for obj in Objects %}
+        <div>
+
+         <tr>
+        <td>{{ obj.name}}  </td>
+        <td>  {{ obj.type}} </td>
+        <td>  {{ obj.max_load}} </td>
+        <td>  {{ obj.load}} </td>
+        <td>  {{ obj.over_load}} </td>
+        </tr>
+
+
+        </div>
+    {% endfor %}
+     </table>
+</div>
+
+</body>
+</html>
